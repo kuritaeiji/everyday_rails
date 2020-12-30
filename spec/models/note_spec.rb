@@ -20,4 +20,11 @@ RSpec.describe Note, type: :model do
       end
     end
   end
+
+  it('delegate(:name, to: :user, prefix: true)') do
+    user_double = instance_double(User, name: 'kurita eiji')
+    note = Note.new
+    allow(note).to receive(:user).and_return(user_double)
+    expect(note.user_name).to eq('kurita eiji')
+  end
 end
