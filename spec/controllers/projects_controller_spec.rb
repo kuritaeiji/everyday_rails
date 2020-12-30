@@ -10,7 +10,10 @@ RSpec.describe ProjectsController, type: :controller do
   
       it('responds successfully') do
         get(:index)
-        expect(response.status).to eq(200)
+        agglegate_fauilures do
+          expect(response.status).to eq(200)
+          expect(response).to be_success
+        end
       end
     end
 
