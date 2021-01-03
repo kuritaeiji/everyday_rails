@@ -23,7 +23,7 @@ group :development, :test do
   gem('factory_bot_rails', '>= 4.11.0', '< 4.20.0')
   gem 'launchy', '~> 2.4.3'
   gem 'webdrivers'
-  gem('shoulda-matchers')
+  gem('shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5')
 end
 
 group :development do
