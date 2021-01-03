@@ -45,4 +45,10 @@ RSpec.describe User, type: :model do
     user = build(:user)
     expect(user.respond_to?(:name)).to eq(true)
   end
+
+  it('ユーザーが作成されるとメールを送信する') do
+    allow(UserMailer).to receive_message_chain(:welcome_email, :deliver_later)
+    user = FactoryBot.create(:user)
+    expect(UserMailer).to have_received(:welcome_email).with(user)
+  end
 end
